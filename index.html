@@ -212,6 +212,273 @@
         <!-- Main Dashboard -->
         <main class="main-content" id="employees">
 
+            <header class="topbar">
+
+                <div class="topbar__left">
+
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </button>
+
+                    <div class="topbar__page">
+                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                        <span>Employees</span>
+                    </div>
+
+                </div>
+
+                <div class="topbar__right">
+
+                    <span class="last-update">Last update 12 min ago</span>
+
+                    <div class="member-stack" aria-label="Recently active employees">
+                        <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Henry&backgroundColor=e6d5c5" alt="Henry">
+                        <img src="https://api.dicebear.com/9.x/notionists/svg?seed=James&backgroundColor=d8e1e8" alt="James">
+                        <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Richard&backgroundColor=e4d3c9" alt="Richard">
+                    </div>
+
+                    <span class="topbar__separator" aria-hidden="true"></span>
+
+                    <button class="outline-btn" id="editTableBtn" type="button">
+                        <ion-icon name="document-text-outline"></ion-icon>
+                        <span>Edit Table</span>
+                    </button>
+
+                </div>
+
+            </header>
+
+            <div class="page-content">
+
+                <!-- Overview -->
+                <section class="overview-section" aria-labelledby="overviewTitle">
+
+                    <h1 id="overviewTitle">Employees Overview</h1>
+
+                    <div class="stats-grid">
+
+                        <article class="stat-card">
+                            <div class="stat-card__content">
+                                <p>Total Employees</p>
+                                <strong id="totalEmployees">150</strong>
+                            </div>
+
+                            <span class="stat-card__icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__content">
+                                <p>Active Employees</p>
+                                <strong id="activeEmployees">130</strong>
+                            </div>
+
+                            <span class="stat-card__icon">
+                                <ion-icon name="person-add-outline"></ion-icon>
+                            </span>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__content">
+                                <p>Inactive Employees</p>
+                                <strong id="inactiveEmployees">20</strong>
+                            </div>
+
+                            <span class="stat-card__icon">
+                                <ion-icon name="person-remove-outline"></ion-icon>
+                            </span>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__content">
+                                <p>Departments</p>
+                                <strong id="departmentCount">8</strong>
+                            </div>
+
+                            <span class="stat-card__icon">
+                                <ion-icon name="people-circle-outline"></ion-icon>
+                            </span>
+                        </article>
+
+                    </div>
+
+                </section>
+
+                <!-- Employee Activity Chart -->
+                <section class="chart-card" aria-labelledby="chartTitle">
+
+                    <div class="chart-card__header">
+
+                        <div class="chart-card__title">
+                            <ion-icon name="person-add-outline"></ion-icon>
+                            <h2 id="chartTitle">New Hires vs.Exits</h2>
+                        </div>
+
+                        <div class="chart-card__actions">
+
+                            <div class="chart-legend" aria-label="Chart legend">
+                                <span><i class="legend-dot legend-dot--hire"></i>New Hires</span>
+                                <span><i class="legend-dot legend-dot--exit"></i>Exits</span>
+                            </div>
+
+                            <button class="outline-btn view-result-btn" type="button" data-result="chart">
+                                <ion-icon name="reader-outline"></ion-icon>
+                                <span>View Result</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="chart-layout">
+
+                        <div class="chart-y-axis" aria-hidden="true">
+                            <span>50</span>
+                            <span>40</span>
+                            <span>30</span>
+                            <span>20</span>
+                            <span>10</span>
+                            <span>0</span>
+                        </div>
+
+                        <div class="chart-area">
+
+                            <div class="chart-grid-lines" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="bar-chart" id="barChart" role="img" aria-label="New hires versus employee exits from January to November"></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Employees Table -->
+                <section class="employee-card" aria-labelledby="employeeTableTitle">
+
+                    <h2 class="sr-only" id="employeeTableTitle">Employee list</h2>
+
+                    <div class="employee-toolbar">
+
+                        <div class="employee-toolbar__filters">
+
+                            <label class="employee-search">
+                                <ion-icon name="search-outline"></ion-icon>
+                                <input id="employeeSearch" type="search" placeholder="Search Employee..." aria-label="Search employee">
+                            </label>
+
+                            <div class="filter-dropdown">
+
+                                <button class="filter-btn" id="dateFilterBtn" type="button" aria-expanded="false">
+                                    <ion-icon name="calendar-clear-outline"></ion-icon>
+                                    <span>Joined Date</span>
+                                    <ion-icon class="filter-btn__chevron" name="chevron-down-outline"></ion-icon>
+                                </button>
+
+                                <div class="filter-menu" id="dateFilterMenu">
+                                    <button type="button" data-sort-date="newest">Newest first</button>
+                                    <button type="button" data-sort-date="oldest">Oldest first</button>
+                                    <button type="button" data-sort-date="default">Default</button>
+                                </div>
+
+                            </div>
+
+                            <div class="filter-dropdown">
+
+                                <button class="filter-btn" id="statusFilterBtn" type="button" aria-expanded="false">
+                                    <ion-icon name="leaf-outline"></ion-icon>
+                                    <span id="statusFilterText">All Status</span>
+                                    <ion-icon class="filter-btn__chevron" name="chevron-down-outline"></ion-icon>
+                                </button>
+
+                                <div class="filter-menu" id="statusFilterMenu">
+                                    <button type="button" data-status="All">All Status</button>
+                                    <button type="button" data-status="Active">Active</button>
+                                    <button type="button" data-status="In Progress">In Progress</button>
+                                    <button type="button" data-status="Declined">Declined</button>
+                                </div>
+
+                            </div>
+
+                            <div class="filter-dropdown">
+
+                                <button class="filter-btn filter-btn--more" id="moreFilterBtn" type="button" aria-expanded="false">
+                                    <span>More</span>
+                                    <ion-icon class="filter-btn__chevron" name="chevron-down-outline"></ion-icon>
+                                </button>
+
+                                <div class="filter-menu filter-menu--right" id="moreFilterMenu">
+
+                                    <button type="button" id="clearFiltersBtn">
+                                        <ion-icon name="refresh-outline"></ion-icon>
+                                        Reset filters
+                                    </button>
+
+                                    <button type="button" id="exportBtn">
+                                        <ion-icon name="download-outline"></ion-icon>
+                                        Export CSV
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="outline-btn view-result-btn employee-toolbar__result" type="button" data-result="table">
+                            <ion-icon name="reader-outline"></ion-icon>
+                            <span>View Result</span>
+                        </button>
+
+                    </div>
+
+                    <div class="table-wrap">
+
+                        <table class="employee-table">
+
+                            <thead>
+                                <tr>
+
+                                    <th class="column-id">
+                                        <div class="table-heading">
+                                            <input id="selectAllEmployees" type="checkbox" aria-label="Select all employees">
+                                            <span>User ID</span>
+                                        </div>
+                                    </th>
+
+                                    <th class="column-name">Name</th>
+                                    <th class="column-email">Email Address</th>
+                                    <th class="column-department">Department</th>
+                                    <th class="column-job">Job Title</th>
+                                    <th class="column-date">Joined Date</th>
+                                    <th class="column-status">Status</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody id="employeeTableBody"></tbody>
+
+                        </table>
+
+                        <div class="empty-state" id="emptyState" hidden>
+                            <ion-icon name="search-outline"></ion-icon>
+                            <strong>No employees found</strong>
+                            <p>Try changing your search or filter.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
 
         </main>
 
