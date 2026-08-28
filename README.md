@@ -5,8 +5,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Status](https://img.shields.io/badge/status-in%20development-yellow?style=flat-square)
 
-<img width="1280" height="800" alt="dashboard-preview" src="https://github.com/user-attachments/assets/fced4848-6396-41cf-9cd3-f271bf91b03e" />
-
+<img width="1280" height="800" alt="preview" src="https://github.com/user-attachments/assets/62aff9b6-0d9a-49dc-9351-de0321502176" />
 
 A frontend HR/employee-management dashboard UI concept for a fictional company, "Zenus Inc." Built with vanilla HTML, CSS, and JavaScript — no framework, no build step.
 
