@@ -484,6 +484,78 @@
 
     </div>
 
+    <!-- Edit Table Modal -->
+    <div class="modal" id="editTableModal" aria-hidden="true">
+
+        <div class="modal__backdrop" data-close-modal></div>
+
+        <section class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="editTableTitle">
+
+            <div class="modal__header">
+
+                <div>
+                    <span class="modal__eyebrow">Table preferences</span>
+                    <h2 id="editTableTitle">Edit Table</h2>
+                </div>
+
+                <button class="modal__close" type="button" data-close-modal aria-label="Close modal">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+
+            </div>
+
+            <p class="modal__description">Choose which employee information should be displayed in the table.</p>
+
+            <div class="column-options">
+                <label><input type="checkbox" data-column="email" checked><span>Email Address</span></label>
+                <label><input type="checkbox" data-column="department" checked><span>Department</span></label>
+                <label><input type="checkbox" data-column="job" checked><span>Job Title</span></label>
+                <label><input type="checkbox" data-column="date" checked><span>Joined Date</span></label>
+                <label><input type="checkbox" data-column="status" checked><span>Status</span></label>
+            </div>
+
+            <div class="modal__footer">
+                <button class="modal-btn modal-btn--secondary" type="button" data-close-modal>Cancel</button>
+                <button class="modal-btn modal-btn--primary" id="saveColumnsBtn" type="button">Save changes</button>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- Result Modal -->
+    <div class="modal" id="resultModal" aria-hidden="true">
+
+        <div class="modal__backdrop" data-close-result></div>
+
+        <section class="modal__dialog modal__dialog--result" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+
+            <div class="modal__header">
+
+                <div>
+                    <span class="modal__eyebrow">Overview</span>
+                    <h2 id="resultTitle">Employee Result</h2>
+                </div>
+
+                <button class="modal__close" type="button" data-close-result aria-label="Close result">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+
+            </div>
+
+            <div class="result-summary" id="resultSummary"></div>
+
+            <button class="modal-btn modal-btn--primary modal-btn--full" type="button" data-close-result>Done</button>
+
+        </section>
+
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <span id="toastMessage">Changes saved successfully.</span>
+    </div>
+
 </body>
 
 </html>
