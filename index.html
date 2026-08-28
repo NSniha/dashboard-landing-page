@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Zenus Inc employee management dashboard for managing employees, attendance, departments, performance and workforce information.">
+    <meta name="keywords" content="employee dashboard, HR dashboard, employee management, workforce management, Zenus Inc">
+    <meta name="author" content="Zenus Inc">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Employees Dashboard | Zenus Inc</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/js/main.js" defer></script>
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Fixed Sidebar -->
+        <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+
+            <div class="sidebar__top">
+
+                <div class="brand">
+                    <a class="brand__link" href="#" aria-label="Zenus Inc home">
+                        <span class="brand__logo">Z</span>
+                        <span class="brand__name">Zenus Inc</span>
+                    </a>
+
+                    <img class="brand__avatar" src="https://api.dicebear.com/9.x/notionists/svg?seed=Natalie&backgroundColor=e6d5c5" alt="Account profile">
+                </div>
+
+                <label class="global-search">
+                    <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                    <input id="globalSearch" type="search" placeholder="Search Anything..." aria-label="Search dashboard">
+                </label>
+
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <ul class="nav-list">
+
+                    <li>
+                        <a class="nav-link" href="#dashboard">
+                            <ion-icon name="compass-outline" aria-hidden="true"></ion-icon>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="#notification">
+                            <ion-icon name="notifications-outline" aria-hidden="true"></ion-icon>
+                            <span>Notification</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link active" href="#employees" aria-current="page">
+                            <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                            <span>Employees</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="#attendance">
+                            <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
+                            <span>Attendance</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="#emails">
+                            <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                            <span>Emails</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="#invoices">
+                            <ion-icon name="map-outline" aria-hidden="true"></ion-icon>
+                            <span>Invoices</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <button class="nav-link nav-link--button" id="performanceToggle" type="button" aria-expanded="false" aria-controls="performanceSubmenu">
+                            <ion-icon name="globe-outline" aria-hidden="true"></ion-icon>
+                            <span>Performance</span>
+                            <ion-icon class="nav-link__arrow" name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                        </button>
+
+                        <ul class="nav-submenu" id="performanceSubmenu">
+                            <li><a href="#overview">Overview</a></li>
+                            <li><a href="#reviews">Reviews</a></li>
+                            <li><a href="#goals">Goals</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <div class="nav-divider"></div>
+
+                <div class="favorites">
+
+                    <button class="favorites__heading" id="favoritesToggle" type="button" aria-expanded="true" aria-controls="favoritesList">
+                        <ion-icon name="chevron-down-outline" aria-hidden="true"></ion-icon>
+                        <span>Favorites</span>
+                    </button>
+
+                    <ul class="favorite-list" id="favoritesList">
+
+                        <li>
+                            <a href="#reimbursements">
+                                <ion-icon name="folder" aria-hidden="true"></ion-icon>
+                                <span>Reimbursements</span>
+                                <i aria-hidden="true"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#timesheets">
+                                <ion-icon name="folder" aria-hidden="true"></ion-icon>
+                                <span>Timesheets</span>
+                                <i aria-hidden="true"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#overtime">
+                                <ion-icon name="folder" aria-hidden="true"></ion-icon>
+                                <span>Overtime Logs</span>
+                                <i aria-hidden="true"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+
+            <div class="sidebar__bottom">
+
+                <article class="plan-card" id="planCard">
+
+                    <button class="plan-card__close" id="closePlanCard" type="button" aria-label="Close upgrade message">
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+
+                    <div class="plan-card__title">
+                        <ion-icon name="timer-outline" aria-hidden="true"></ion-icon>
+                        <strong>4 Days left !</strong>
+                    </div>
+
+                    <div class="plan-card__progress" aria-label="Plan duration progress">
+                        <span></span>
+                    </div>
+
+                    <p>Select best plan now and unlock all special features</p>
+
+                    <button class="plan-card__action" type="button">
+                        <span>Select plan</span>
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>
+
+                </article>
+
+                <ul class="sidebar-footer-links">
+
+                    <li>
+                        <a href="#feedback">
+                            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                            <span>Feedback</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#settings">
+                            <ion-icon name="settings-outline"></ion-icon>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#help">
+                            <ion-icon name="help-circle-outline"></ion-icon>
+                            <span>Help Center</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Main Dashboard -->
+        <main class="main-content" id="employees">
+
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
